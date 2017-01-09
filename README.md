@@ -1,11 +1,11 @@
 # Udacity Self Driving Car Nanodegree
 ## Project 3 - Use deep learning to clone driving behavior
 
-Here you can find my implementaion for the behavioral cloning project. 
+Here you can find my implementaion for the behavioral cloning project. Please check this [medium post](https://medium.com/@ValipourMojtaba/probably-smallest-network-for-project-3-d69cc5ee106a#.h5m0z8i2f). 
 
 ### Project Goals
 
-In this project we want to design and develop a deep learning model to mimic driving behavior. The input here is an image and the output should be control commands such as Steering Angel. Here for simplicity we just predict steering angle. 
+In this project we want to design and develop a deep learning model to mimic driving behavior. The input here is an image and the output should be control commands such as Steering Angle. Here for simplicity we just predict steering angle. 
 
 ### Simulator
 
@@ -26,7 +26,7 @@ Once you've downloaded it, extract it and run it.
 
 ### Data 
 
-First I generated a large dataset from the simulator with a keyboard but data set was not perfect and there was a lot of noisy samples and the model was not quite good. After that I wrote a code to filter out dataset and choose only the best samples for training. 
+First I generated a large dataset from the simulator with a keyboard but data set was not perfect and there was a lot of noisy samples and the model was not quite good. After that I wrote a code to filter out dataset and keep only the best samples for training. 
 
 ```
 %matplotlib inline
@@ -87,7 +87,7 @@ In the following picture, I show some examples from the dataset after loading an
 
 ### Preprocess
 
-As you can see in the above images, the main problem here is imbalance dataset. If you train any model with this pure dataset then you will just overfitted and the model tend to predict zero and straight forward driving. So we really need to figure out the problem. To fix that I was looking for a thermal and proabability variable to force generator generate a balance dataset for the model. However with that approach controling the parameters was hard so I decide to change that to a better and more simple approach. I filtered out the dataset and I keep only 25 percent of zero samples. Here we face to a trade-off and if we keep less or more zero samples depend to the network we will have a more spiky or more straight driving. Actually I design the generator somehow to augment data when we call it. I changed many of my parameters when I see better approach by other people. However to see the final distribution of data I test it using a simple approach. I call my generator for a specific time and then I measured the labels and plot the histogram. You can see the result here:
+As you can see in the above images, the main problem here is imbalance dataset. If you train any model with this pure dataset then you will just overfitted and the model tend to predict zero and straight forward driving. So we really need to figure out the problem. To fix that I was looking for a thermal and proabability variable to force generator generate a balance dataset for the model. However with that approach controling the parameters was hard so I decide to change that to a better and more simple approach. I filtered out the dataset and I keep only 25 percent of zero samples. Here we face to a trade-off and if we keep less or more zero samples depend to the network we will have a more spiky or more straight driving. Actually I design the generator somehow to augment data when we call it. I changed many of my parameters when I see better approach by other people. However to see the final distribution of data I test it using a simple approach. I called my generator for a specific time and then I measured the labels and plot the histogram. You can see the result here:
 <p align="Center">
      <img src=Elements/6.png />
 </p>
@@ -122,7 +122,7 @@ After applying above augmentation the generator will generate samples similar to
 
 ### Architecture 
 
-To design the model I first start from a very simple model. One of my objective was to design a very small network and powerful enough to solve this problem. I really need to visulize the output of the model layers to see what network can see so I wrote a code to visualize the layer in keras which is very simple thanks to keras most part was implemented before. According to the output I realize that which network is better and this visualization help me to achieve this network. 
+To design the model I first start from a very simple model. One of my objective was to design a very small network and powerful enough to solve this problem. I really need to visulize the output of the model layers to see what network can see so I wrote a code to visualize the layer which is very simple thanks to keras (most part was implemented before). According to the output I realize that which network is better and this visualization help me to achieve this network. 
 
 Here you can see the model and output of the each layer:
 
