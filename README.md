@@ -85,7 +85,7 @@ In the following picture, I show some examples from the dataset after loading an
      <img src=Elements/5.png />
 </p>
 
-### Preprocess
+### Data Preprocessing
 
 As you can see in the above images, the main problem here is imbalance dataset. If you train any model with this pure dataset then you will just overfitted and the model tend to predict zero and straight forward driving. So we really need to figure out the problem. To fix that I was looking for a thermal and proabability variable to force generator generate a balance dataset for the model. However with that approach controling the parameters was hard so I decide to change that to a better and more simple approach. I filtered out the dataset and I keep only 25 percent of zero samples. Here we face to a trade-off and if we keep less or more zero samples depend to the network we will have a more spiky or more straight driving. Actually I design the generator somehow to augment data when we call it. I changed many of my parameters when I see better approach by other people. However to see the final distribution of data I test it using a simple approach. I called my generator for a specific time and then I measured the labels and plot the histogram. You can see the result here:
 <p align="Center">
@@ -169,7 +169,7 @@ In the following figures you can see output of the first, middle and the last la
 
 The trainable parameters in my network is 345,645 which is very good and you can fine tune this network live even with the very limited resource.  
 
-### Train Process 
+### Model Training 
 
 The hardest part was to wait for training process specially when I had no access to a powerful GPU. Because I used adam optimizer, I use this code to train my model in Keras:
 ```
