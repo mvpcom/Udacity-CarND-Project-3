@@ -1,7 +1,7 @@
 # Udacity Self Driving Car Nanodegree
 ## Project 3 - Use deep learning to clone driving behavior
 
-Here you can find my implementaion for the behavioral cloning project. Please check this [medium post](https://medium.com/@ValipourMojtaba/probably-smallest-network-for-project-3-d69cc5ee106a#.h5m0z8i2f). 
+Here you can find my implementaion for the behavioral cloning project. Please check this [medium post](https://medium.com/@ValipourMojtaba/my-approach-for-project-3-2545578a9319). 
 
 ### Project Goals
 
